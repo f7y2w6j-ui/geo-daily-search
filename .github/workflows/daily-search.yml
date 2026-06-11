@@ -72,6 +72,8 @@ jobs:
           echo "🔍 搜索时段: $WINDOW (覆盖最近 ${FROM_HOURS}h 内容)"
 
       - name: 执行搜索
+        env:
+          BING_API_KEY: ${{ secrets.BING_API_KEY }}
         run: node scripts/search.mjs ${{ steps.window.outputs.window }} ${{ steps.window.outputs.from_hours }}
 
       - name: 提交搜索结果
