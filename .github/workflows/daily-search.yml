@@ -1,0 +1,79 @@
+# ============================================================================
+# GEO Ally — 每日自动搜索工作流
+# ============================================================================
+# 三个时间段自动搜索护肤彩妆行业最新内容：
+#   09:00 CST — 学习前日傍晚+夜间内容（昨日16:00 - 今日08:00）
+#   13:00 CST — 学习当日上午内容（今日08:00 - 今日12:00）
+#   18:00 CST — 学习当日下午内容（今日12:00 - 今日18:00）
+#
+# 手动触发（workflow_dispatch）：强制搜索上次学习至今的全部内容
+# ============================================================================
+
+name: 每日行业搜索
+
+on:
+  schedule:
+    # 北京时间 09:00（UTC 01:00）— 前日傍晚+夜间内容
+    - cron: '0 1 * * *'
+    # 北京时间 13:00（UTC 05:00）— 当日上午内容
+    - cron: '0 5 * * *'
+    # 北京时间 18:00（UTC 10:00）— 当日下午内容
+    - cron: '0 10 * * *'
+  # 手动触发：强制搜索
+  workflow_dispatch:
+    inputs:
+      forceFullSearch:
+        description: '强制完整搜索（忽略时间窗口，从上次搜索至今）'
+        required: false
+        default: 'true'
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 确定搜索时间窗口
+        id: window
+        run: |
+          HOUR=$(date +%H -d '8 hours')  # CST
+          if [ "$HOUR" -lt 12 ]; then
+            WINDOW="evening"       # 09:00 — 前日傍晚+夜间
+            FROM_HOURS=17          # 距离上次18:00搜索约15小时
+          elif [ "$HOUR" -lt 17 ]; then
+            WINDOW="morning"       # 13:00 — 当日上午
+            FROM_HOURS=5
+          else
+            WINDOW="afternoon"     # 18:00 — 当日下午
+            FROM_HOURS=6
+          fi
+
+          # 手动触发时强制完整搜索
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "🔄 手动触发：强制完整搜索"
+            WINDOW="manual"
+            FROM_HOURS=24
+          fi
+
+          echo "window=$WINDOW" >> $GITHUB_OUTPUT
+          echo "from_hours=$FROM_HOURS" >> $GITHUB_OUTPUT
+          echo "🔍 搜索时段: $WINDOW (覆盖最近 ${FROM_HOURS}h 内容)"
+
+      - name: 执行搜索
+        run: node scripts/search.mjs ${{ steps.window.outputs.window }} ${{ steps.window.outputs.from_hours }}
+
+      - name: 提交搜索结果
+        run: |
+          git config user.name "GEO Ally Bot"
+          git config user.email "geo-ally@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "📰 每日搜索更新 [${{ steps.window.outputs.window }}] $(date -d '8 hours' '+%Y-%m-%d %H:%M') CST"
+          git push
