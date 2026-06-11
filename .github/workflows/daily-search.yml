@@ -11,6 +11,9 @@
 
 name: 每日行业搜索
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   schedule:
     # 北京时间 09:00（UTC 01:00）— 前日傍晚+夜间内容
