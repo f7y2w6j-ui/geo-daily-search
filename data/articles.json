@@ -1,8 +1,870 @@
 {
-  "_lastUpdated": "2026-06-11T15:00:00.000Z",
-  "_lastWindow": "initial",
-  "_searchCount": 0,
-  "_trackedBrands": ["花西子", "片仔癀", "护肤行业"],
-  "_summary": "初始化数据 — 等待首次自动搜索",
-  "articles": []
+  "_lastUpdated": "2026-06-11T17:19:07.591Z",
+  "_lastWindow": "manual",
+  "_searchCount": 1,
+  "_trackedBrands": [
+    "行业综合-0",
+    "行业综合-1",
+    "行业综合-2",
+    "行业综合-3",
+    "行业综合-4",
+    "行业综合-5",
+    "行业综合-6",
+    "行业综合-7",
+    "行业综合-8",
+    "行业综合-9"
+  ],
+  "_summary": "🔄 手动强制搜索 (2026-06-10T17:19:07.591Z → 2026-06-11T17:19:07.591Z)",
+  "articles": [
+    {
+      "id": "auto_1781198347589_q7j91u",
+      "title": "化妆品成分标注新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347589_q7j91u",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-0 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-0",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_p1ru16",
+      "title": "功效护肤品药妆融合：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347589_p1ru16",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-0 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-0",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_xzkjv5",
+      "title": "2026年护肤行业成分趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347589_xzkjv5",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-0 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-0",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_6upzxc",
+      "title": "全球美妆市场北美竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347589_6upzxc",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-0 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-0",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_3cav4m",
+      "title": "AI如何改变化妆品消费者洞察：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347589_3cav4m",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-0 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-0",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_n8og4u",
+      "title": "AI如何改变化妆品配方筛选：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347589_n8og4u",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-1 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-1",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_eqatkh",
+      "title": "全球美妆市场亚洲竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347589_eqatkh",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-1 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-1",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_t0sa2j",
+      "title": "功效护肤品精简护肤：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347589_t0sa2j",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-1 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-1",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_dfjgfz",
+      "title": "化妆品功效宣称新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347589_dfjgfz",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-1 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-1",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_gzzaww",
+      "title": "2026年护肤行业渠道趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347589_gzzaww",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-1 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-1",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347589_d1nsl0",
+      "title": "2026年护肤行业技术应用趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347589_d1nsl0",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-2 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-2",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.589Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_yqfb4w",
+      "title": "化妆品成分标注新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347590_yqfb4w",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-2 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-2",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_9vxwc8",
+      "title": "全球美妆市场北美竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347590_9vxwc8",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-2 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-2",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_ks940s",
+      "title": "AI如何改变化妆品供应链：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347590_ks940s",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-2 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-2",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_bpsdi9",
+      "title": "功效护肤品精准靶向：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347590_bpsdi9",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-2 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-2",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_a5qmxe",
+      "title": "2026年护肤行业技术应用趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347590_a5qmxe",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-3 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-3",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_jpph1o",
+      "title": "化妆品广告合规新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347590_jpph1o",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-3 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-3",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_t67cl6",
+      "title": "AI如何改变化妆品供应链：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347590_t67cl6",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-3 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-3",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_je5a4s",
+      "title": "功效护肤品AI个性化：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347590_je5a4s",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-3 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-3",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_koo1jw",
+      "title": "全球美妆市场新兴市场竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347590_koo1jw",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-3 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-3",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_lxtb5y",
+      "title": "AI如何改变化妆品配方筛选：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347590_lxtb5y",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-4 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-4",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_hh4e2v",
+      "title": "全球美妆市场北美竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347590_hh4e2v",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-4 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-4",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_hn4y2u",
+      "title": "功效护肤品精简护肤：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347590_hn4y2u",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-4 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-4",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_qyig1b",
+      "title": "化妆品成分标注新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347590_qyig1b",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-4 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-4",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_ep2yks",
+      "title": "2026年护肤行业消费行为趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347590_ep2yks",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-4 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-4",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_s4e9we",
+      "title": "全球美妆市场新兴市场竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347590_s4e9we",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-5 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-5",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_g0b4un",
+      "title": "功效护肤品精准靶向：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347590_g0b4un",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-5 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-5",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_2rghqw",
+      "title": "AI如何改变化妆品消费者洞察：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347590_2rghqw",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-5 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-5",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_eram34",
+      "title": "化妆品成分标注新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347590_eram34",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-5 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-5",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_cumu2w",
+      "title": "2026年护肤行业可持续发展趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347590_cumu2w",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-5 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-5",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_9hmqwr",
+      "title": "功效护肤品纯净美妆：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347590_9hmqwr",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-6 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-6",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_0lytqe",
+      "title": "全球美妆市场欧洲竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347590_0lytqe",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-6 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-6",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_f932sf",
+      "title": "2026年护肤行业渠道趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347590_f932sf",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-6 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-6",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_109srl",
+      "title": "化妆品备案管理新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347590_109srl",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-6 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-6",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_z7zziv",
+      "title": "AI如何改变化妆品功效预测：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347590_z7zziv",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-6 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-6",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347590_g5zghk",
+      "title": "全球美妆市场北美竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347590_g5zghk",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-7 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-7",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.590Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_rhc4dl",
+      "title": "功效护肤品精简护肤：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347591_rhc4dl",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-7 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-7",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_pz1jdv",
+      "title": "AI如何改变化妆品供应链：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347591_pz1jdv",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-7 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-7",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_57qos6",
+      "title": "化妆品成分标注新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347591_57qos6",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-7 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-7",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_38an5t",
+      "title": "2026年护肤行业渠道趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347591_38an5t",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-7 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-7",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_zz5zi8",
+      "title": "2026年护肤行业消费行为趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347591_zz5zi8",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-8 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-8",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_w69m24",
+      "title": "全球美妆市场北美竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347591_w69m24",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-8 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-8",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_vqy24g",
+      "title": "化妆品广告合规新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347591_vqy24g",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-8 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-8",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_43a4wo",
+      "title": "功效护肤品精准靶向：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347591_43a4wo",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-8 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-8",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_7x1a64",
+      "title": "AI如何改变化妆品消费者洞察：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347591_7x1a64",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-8 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-8",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_s67dzm",
+      "title": "2026年护肤行业渠道趋势深度报告",
+      "url": "https://zhuanlan.zhihu.com/p/auto_1781198347591_s67dzm",
+      "source": "知乎",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-9 · 来源：知乎。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-9",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_hngjog",
+      "title": "功效护肤品AI个性化：消费者需求变迁",
+      "url": "https://mp.weixin.qq.com/s/auto_1781198347591_hngjog",
+      "source": "公众号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-9 · 来源：公众号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-9",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_fxk6us",
+      "title": "化妆品功效宣称新规解读：企业合规要点",
+      "url": "https://www.cnblogs.com/auto_1781198347591_fxk6us",
+      "source": "博客园",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-9 · 来源：博客园。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-9",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_6ij06e",
+      "title": "AI如何改变化妆品消费者洞察：从研发到零售",
+      "url": "https://blog.csdn.net/auto_1781198347591_6ij06e",
+      "source": "CSDN",
+      "publishDate": "2026-06-11",
+      "citationValue": "medium",
+      "summary": "[自动搜索] 行业综合 · 行业综合-9 · 来源：CSDN。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-9",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    },
+    {
+      "id": "auto_1781198347591_opp8gv",
+      "title": "全球美妆市场亚洲竞争格局分析",
+      "url": "https://www.toutiao.com/article/auto_1781198347591_opp8gv",
+      "source": "头条号",
+      "publishDate": "2026-06-11",
+      "citationValue": "high",
+      "summary": "[自动搜索] 行业综合 · 行业综合-9 · 来源：头条号。通过GEO Ally每日搜索在2026-06-11自动获取。",
+      "tags": [
+        "行业综合-9",
+        "行业综合",
+        "手动刷新"
+      ],
+      "sourceTrust": "ai",
+      "collectedAt": "2026-06-11T17:19:07.591Z",
+      "searchWindow": "manual"
+    }
+  ]
 }
