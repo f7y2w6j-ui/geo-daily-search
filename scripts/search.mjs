@@ -205,15 +205,15 @@ async function searchBrand(brand, window) {
     const source = template.source;
     const id = generateArticleId();
 
-    articles.push({
+        articles.push({
       id,
       title,
-      url: `${template.baseUrl}${id}`,
+      url: `https://www.baidu.com/s?wd=${encodeURIComponent(title)}`,
       source,
       publishDate: formatDate(),
       citationValue: estimateCitationValue(source),
-      summary: `[自动搜索] ${brand.category || '行业'} · ${brand.name} · 来源：${source}。通过GEO Ally每日搜索在${formatDate()}自动获取。`,
-      tags: [brand.name, brand.category || '行业', window === 'manual' ? '手动刷新' : '自动搜索'],
+      summary: `[AI辅助发现] ⚠️ 此标题和来源为AI基于行业模板生成，仅供参考。请点击链接搜索核实原文。`,
+      tags: [brand.name, brand.category || '行业', 'AI生成', window === 'manual' ? '手动刷新' : '自动搜索'],
       sourceTrust: 'ai',
       collectedAt: new Date().toISOString(),
       searchWindow: window,
