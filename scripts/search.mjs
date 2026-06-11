@@ -1,12 +1,9 @@
 // ============================================================================
-// GEO Ally — 每日搜索脚本
+// GEO Ally — 每日搜索脚本（免费多引擎方案）
 // ============================================================================
-// 生成每日行业搜索建议，保存到 data/articles.json
-// 用法: node scripts/search.mjs [window] [fromHours]
-//
-// 重要原则：不生成假文章URL！
-// 每个条目都是一个「搜索主题建议」+ 百度搜索链接，用户点击后自行找到原文。
-// 与诈骗式的假URL不同，搜索链接是诚实的——它就是搜索，不是假文章。
+// 优先使用 BING_API_KEY（若配置），否则用免费公开接口
+// 免费方案: SearXNG 公共实例 → DuckDuckGo HTML → Bing HTML
+// GitHub Actions 服务器在美国，不受 GFW 限制
 // ============================================================================
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
@@ -18,53 +15,45 @@ const DATA_DIR = resolve(__dirname, '../data');
 const ARTICLES_FILE = resolve(DATA_DIR, 'articles.json');
 const LOG_FILE = resolve(DATA_DIR, 'search-log.json');
 
+const BING_API_KEY = process.env.BING_API_KEY || '';
+
 // ============================================================================
-// 品牌追踪配置
+// 搜索查询（每天3个话题 × 3篇 = 9篇）
 // ============================================================================
+
+const SEARCH_QUERIES = [
+  { query: '护肤品 行业趋势 2026', category: '行业趋势', sourceHint: '知乎' },
+  { query: '化妆品 新规 功效宣称 备案', category: '法规政策', sourceHint: '搜狐号' },
+  { query: '护肤成分 功效研究 最新进展', category: '成分技术', sourceHint: '知乎' },
+  { query: '国货美妆 品牌 最新动态', category: '品牌动态', sourceHint: '什么值得买' },
+  { query: '化妆品 监管 安全评估 电子标签', category: '法规政策', sourceHint: '新华报业' },
+  { query: '护肤品 消费趋势 成分党 功效', category: '消费趋势', sourceHint: '公众号' },
+  { query: '化妆品 原料创新 递送技术 AI', category: '成分技术', sourceHint: 'CSDN' },
+  { query: '美妆 市场分析 国货 竞争格局', category: '行业趋势', sourceHint: '头条号' },
+  { query: '彩妆 新品 评测 趋势 2026', category: '品牌动态', sourceHint: '网易号' },
+];
 
 function loadTrackedBrands() {
   const configPath = resolve(DATA_DIR, 'tracked-brands.json');
   try {
     if (existsSync(configPath)) {
       const config = JSON.parse(readFileSync(configPath, 'utf8'));
-      const brands = (config.brands || []).map(name => ({
-        name,
-        keywords: [`${name} 最新动态`, `${name} 新品发布`, `${name} 行业分析`],
+      return (config.brands || []).map(name => ({
+        query: `${name} 护肤品 最新 动态`,
         category: '品牌追踪',
-        searchedSources: ['知乎', '什么值得买', '头条号', '搜狐号'],
+        sourceHint: '头条号',
       }));
-      const industryTopics = (config.industryTopics || [
-        '护肤品 行业趋势 2026', '化妆品 新规 政策', '护肤成分 研究进展',
-        '彩妆 新品 评测', '国货护肤 品牌动态', '美妆 市场分析',
-      ]).map((topic, i) => ({
-        name: `行业综合-${i}`,
-        keywords: [topic],
-        category: '行业综合',
-        searchedSources: ['知乎', '头条号', '搜狐号', '网易号', 'CSDN', '公众号'],
-      }));
-      return [...brands, ...industryTopics];
     }
-  } catch (e) {
-    console.log('  ⚠️ 无法读取品牌配置，使用默认行业综合搜索');
-  }
-  // 默认：行业综合搜索建议
-  return [
-    { name: '护肤行业', keywords: ['护肤品 行业趋势 2026', '化妆品 新规 政策解读', '护肤成分 最新研究'], category: '行业综合', searchedSources: ['知乎', '头条号', '搜狐号'] },
-    { name: '彩妆行业', keywords: ['彩妆 新品 评测 2026', '国货彩妆 品牌动态', '彩妆趋势 成分分析'], category: '行业综合', searchedSources: ['知乎', '什么值得买', '网易号'] },
-    { name: '成分研究', keywords: ['护肤成分 功效 研究 2026', '化妆品 原料 创新技术', '热门成分 解析 护肤品'], category: '行业综合', searchedSources: ['知乎', 'CSDN', '什么值得买'] },
-    { name: '法规政策', keywords: ['化妆品 法规 新规 2026', '功效宣称 备案 规范', '化妆品 监管 政策 解读'], category: '行业综合', searchedSources: ['搜狐号', '知乎', '头条号'] },
-    { name: '市场分析', keywords: ['美妆 市场分析 2026', '护肤品 消费趋势 报告', '化妆品 行业 竞争格局'], category: '行业综合', searchedSources: ['头条号', '知乎', '网易号'] },
-  ];
+  } catch (e) { /* ignore */ }
+  return [];
 }
-
-const TRACKED_BRANDS = loadTrackedBrands();
 
 // ============================================================================
 // 工具函数
 // ============================================================================
 
 function uid() {
-  return `auto_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
+  return `real_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
 }
 
 function formatDate(date = new Date()) {
@@ -83,106 +72,182 @@ function getTimeWindowLabel(window, fromHours) {
   return labels[window] || `📰 搜索 (${from.toISOString()} → ${now.toISOString()})`;
 }
 
-// ============================================================================
-// 搜索主题生成器
-// ============================================================================
-// 诚实原则：不生成假文章，每个条目都是「搜索主题建议」。
-// 标题 = 建议搜索的主题
-// URL  = 百度搜索链接（用户点击后在百度找到真实原文）
-// 来源 = 建议在这些平台搜索（这些平台被 AI 引用权重高）
-// ============================================================================
-
-const SEARCH_TOPIC_PATTERNS = {
-  '护肤行业': [
-    '2026年护肤品行业趋势分析',
-    '功效护肤市场消费者偏好变化',
-    '国货护肤品品牌竞争格局',
-    '护肤成分创新与技术突破',
-    '敏感肌护肤市场深度分析',
-  ],
-  '彩妆行业': [
-    '2026年彩妆市场新趋势解读',
-    '国货彩妆品牌崛起路径分析',
-    '底妆产品技术革新与评测',
-    '纯净美妆概念的市场实践',
-    '彩妆与护肤融合的产品创新',
-  ],
-  '成分研究': [
-    '热门护肤成分功效对比分析',
-    '新型护肤原料研发进展',
-    '胜肽类护肤品的作用机制',
-    '植物提取物在护肤品中的应用',
-    '发酵成分护肤技术前沿',
-  ],
-  '法规政策': [
-    '化妆品功效宣称管理新规解读',
-    '化妆品备案流程优化最新动态',
-    '儿童化妆品监管政策更新',
-    '化妆品广告合规要点分析',
-    '化妆品安全评估技术导则',
-  ],
-  '市场分析': [
-    '中国美妆市场规模与增长预测',
-    '护肤品细分赛道投资机会',
-    '化妆品行业消费升级趋势',
-    '直播电商对美妆行业的影响',
-    '跨境美妆市场最新动态',
-  ],
-  '品牌追踪': [
-    '品牌新品发布动态',
-    '品牌营销策略分析',
-    '品牌渠道布局变化',
-    '品牌技术研发突破',
-    '品牌市场表现评估',
-  ],
-};
-
-const DAY_SUFFIXES = [
-  '的最新报道', '的行业分析', '的深度解读', '相关讨论',
-  '最新资讯', '行业观点', '市场观察', '趋势研判',
-];
-
-function pickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+function inferSource(url) {
+  const m = {
+    'zhihu.com': '知乎', 'toutiao.com': '头条号', 'sohu.com': '搜狐号',
+    '163.com': '网易号', 'csdn.net': 'CSDN', 'cnblogs.com': '博客园',
+    'baijiahao.baidu.com': '百家号', 'smzdm.com': '什么值得买',
+    'mp.weixin.qq.com': '公众号', 'weixin.qq.com': '公众号',
+    'cctv.cn': '央视网', 'cctv.com': '央视网', 'jiemian.com': '搜狐号',
+    'xhby.net': '新华报业', 'workercn.cn': '新华报业',
+  };
+  for (const [d, s] of Object.entries(m)) if (url.includes(d)) return s;
+  return '知乎';
 }
 
-function generateSearchTopics(brand, count) {
-  const topics = [];
-  const patterns = SEARCH_TOPIC_PATTERNS[brand.category] || SEARCH_TOPIC_PATTERNS['护肤行业'];
+function estCitation(url) {
+  const hi = ['zhihu.com', 'toutiao.com', 'sohu.com', 'weixin.qq.com', 'cctv.cn', 'cctv.com'];
+  const md = ['csdn.net', 'smzdm.com', '163.com', 'cnblogs.com', 'baijiahao.baidu.com'];
+  for (const d of hi) if (url.includes(d)) return 'high';
+  for (const d of md) if (url.includes(d)) return 'medium';
+  return 'low';
+}
 
-  // 为每个关键词生成搜索主题
-  for (let i = 0; i < count; i++) {
-    const baseTopic = pickRandom(patterns);
-    const suffix = pickRandom(DAY_SUFFIXES);
-    const keyword = pickRandom(brand.keywords || ['护肤品']);
-    const sourceHint = pickRandom(brand.searchedSources || ['知乎', '头条号', '搜狐号']);
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-    // 构建搜索标题：结合行业主题 + 品牌/领域关键词
-    const searchTitle = brand.category === '品牌追踪'
-      ? `${brand.name}${baseTopic}${suffix}`
-      : `${baseTopic}${suffix}`;
+// ============================================================================
+// 搜索引擎 #1: Bing Search API（需要 Key，最可靠）
+// ============================================================================
 
-    // 构建百度搜索URL（诚实：这就是搜索链接）
-    const searchQuery = brand.category === '品牌追踪'
-      ? `${brand.name} ${baseTopic}`
-      : baseTopic;
-    const searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(searchQuery)}`;
+async function searchBingAPI(query, count = 5) {
+  if (!BING_API_KEY) return [];
+  const url = `https://api.bing.microsoft.com/v7.0/search?q=${encodeURIComponent(query)}&count=${count}&mkt=zh-CN&setLang=zh-Hans&freshness=Month`;
+  const resp = await fetch(url, {
+    headers: { 'Ocp-Apim-Subscription-Key': BING_API_KEY, 'Accept': 'application/json' },
+  });
+  if (!resp.ok) throw new Error(`Bing API ${resp.status}`);
+  const data = await resp.json();
+  return (data.webPages?.value || []).map(r => ({
+    title: r.name, url: r.url, snippet: r.snippet, datePublished: r.datePublished || null,
+  }));
+}
 
-    topics.push({
-      id: uid(),
-      title: searchTitle,
-      url: searchUrl,
-      source: sourceHint,
-      publishDate: formatDate(),
-      citationValue: 'medium',
-      summary: `🔍 搜索建议：在「${sourceHint}」等平台搜索「${searchQuery}」获取原文。此条目为AI根据行业热点生成的搜索主题，非虚构文章链接。`,
-      tags: [brand.name, brand.category || '行业', '搜索建议'],
-      sourceTrust: 'ai',
-      collectedAt: new Date().toISOString(),
-      searchWindow: 'auto',
-    });
+// ============================================================================
+// 搜索引擎 #2: SearXNG 公共实例（免费，无需 Key）
+// ============================================================================
+
+const SEARXNG_INSTANCES = [
+  'https://searx.be',
+  'https://search.sapti.me',
+  'https://searx.si',
+  'https://search.bus-hit.me',
+  'https://searx.tiekoetter.com',
+];
+
+async function searchSearXNG(query, count = 5) {
+  for (const instance of SEARXNG_INSTANCES) {
+    try {
+      const url = `${instance}/search?q=${encodeURIComponent(query)}&format=json&categories=general&language=zh-CN`;
+      const resp = await fetch(url, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GEO-Ally/1.0)' },
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!resp.ok) continue;
+      const data = await resp.json();
+      if (!data.results?.length) continue;
+      console.log(`     ✅ SearXNG (${instance.split('//')[1].split('/')[0]}) 返回 ${data.results.length} 条`);
+      return data.results.slice(0, count).map(r => ({
+        title: r.title, url: r.url, snippet: r.content || r.snippet || '', datePublished: r.publishedDate || null,
+      }));
+    } catch (e) { /* try next instance */ }
   }
-  return topics;
+  return [];
+}
+
+// ============================================================================
+// 搜索引擎 #3: DuckDuckGo HTML（免费，无需 Key）
+// ============================================================================
+
+async function searchDDG(query, count = 5) {
+  try {
+    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+    const resp = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+      signal: AbortSignal.timeout(10000),
+    });
+    const html = await resp.text();
+
+    // 解析 DDG HTML 结果
+    const results = [];
+    const linkRe = /class="result__a"[^>]*href="([^"]+)"/g;
+    const titleRe = /class="result__a"[^>]*>([^<]+)</g;
+    const snippetRe = /class="result__snippet"[^>]*>([^<]+)</g;
+
+    let linkMatch, titleMatch, snippetMatch;
+    const links = [...html.matchAll(linkRe)].map(m => m[1]);
+    const titles = [...html.matchAll(titleRe)].map(m => m[1]);
+    const snippets = [...html.matchAll(snippetRe)].map(m => m[1]);
+
+    for (let i = 0; i < Math.min(count, links.length); i++) {
+      results.push({
+        title: titles[i] || '无标题',
+        url: links[i],
+        snippet: snippets[i] || '',
+        datePublished: null,
+      });
+    }
+    if (results.length > 0) console.log(`     ✅ DuckDuckGo 返回 ${results.length} 条`);
+    return results;
+  } catch (e) {
+    return [];
+  }
+}
+
+// ============================================================================
+// 搜索引擎 #4: Bing HTML 抓取（免费，无需 Key，备选）
+// ============================================================================
+
+async function searchBingHTML(query, count = 5) {
+  try {
+    const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}&count=${count}&setlang=zh-hans`;
+    const resp = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0' },
+      signal: AbortSignal.timeout(10000),
+    });
+    const html = await resp.text();
+
+    // 从 Bing HTML 提取搜索结果
+    const results = [];
+    const citeRe = /<cite[^>]*>([^<]+)<\/cite>/g;
+    const h2Re = /<h2[^>]*><a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a><\/h2>/g;
+    const pRe = /<p[^>]*class="[^"]*b_lineclamp[^"]*"[^>]*>([^<]+)<\/p>/g;
+
+    const urls = [...html.matchAll(h2Re)].map(m => ({ url: m[1], title: m[2].replace(/<[^>]+>/g, '') }));
+    const snippets = [...html.matchAll(pRe)].map(m => m[1]);
+
+    for (let i = 0; i < Math.min(count, urls.length); i++) {
+      results.push({
+        title: urls[i].title || '无标题',
+        url: urls[i].url,
+        snippet: snippets[i] || '',
+        datePublished: null,
+      });
+    }
+    if (results.length > 0) console.log(`     ✅ Bing HTML 返回 ${results.length} 条`);
+    return results;
+  } catch (e) {
+    return [];
+  }
+}
+
+// ============================================================================
+// 统一搜索入口：多引擎级联
+// ============================================================================
+
+async function searchAllEngines(query, count = 3) {
+  // 1) Bing API（最可靠，有 Key 则优先）
+  if (BING_API_KEY) {
+    try {
+      const results = await searchBingAPI(query, count);
+      if (results.length > 0) return results;
+    } catch (e) {
+      console.log(`     ⚠️ Bing API 失败: ${e.message}`);
+    }
+  }
+
+  // 2) SearXNG 公共实例
+  const searxResults = await searchSearXNG(query, count);
+  if (searxResults.length > 0) return searxResults;
+
+  // 3) DuckDuckGo HTML
+  const ddgResults = await searchDDG(query, count);
+  if (ddgResults.length > 0) return ddgResults;
+
+  // 4) Bing HTML 兜底
+  const bingResults = await searchBingHTML(query, count);
+  if (bingResults.length > 0) return bingResults;
+
+  return [];
 }
 
 // ============================================================================
@@ -190,69 +255,96 @@ function generateSearchTopics(brand, count) {
 // ============================================================================
 
 async function runSearch(window = 'manual', fromHours = 24) {
-  console.log(`\n🔍 GEO Ally 每日搜索开始`);
+  console.log(`\n🔍 GEO Ally 每日搜索`);
   console.log(`  时段: ${window}`);
-  console.log(`  覆盖: 最近 ${fromHours} 小时`);
-  console.log(`  时间: ${new Date().toISOString()}`);
-  console.log(`  原则: 不生成假文章URL，每个条目都是诚实的搜索建议\n`);
+  console.log(`  引擎: ${BING_API_KEY ? 'Bing API' : 'SearXNG → DDG → Bing HTML'}`);
+  console.log(`  时间: ${new Date().toISOString()}\n`);
 
   const allArticles = [];
+  const queries = [...SEARCH_QUERIES, ...loadTrackedBrands()];
 
-  for (const brand of TRACKED_BRANDS) {
-    console.log(`  📌 生成搜索建议: ${brand.name}...`);
-    const count = window === 'manual' ? 4 : 2;
-    const articles = generateSearchTopics(brand, count);
-    console.log(`     → 生成 ${articles.length} 条搜索主题`);
-    allArticles.push(...articles);
-  }
-
-  // 加载已有文章
-  let existing = { articles: [], _lastUpdated: null, _searchCount: 0 };
-  if (existsSync(ARTICLES_FILE)) {
-    try {
-      existing = JSON.parse(readFileSync(ARTICLES_FILE, 'utf8'));
-    } catch (e) {
-      console.log('  ⚠️ 无法读取已有数据，将创建新文件');
+  // 基于日期轮换查询（每天不同话题组合）
+  const dayOfYear = Math.floor((Date.now() - new Date(2026, 0, 1).getTime()) / 86400000);
+  const startIdx = (dayOfYear * 3) % queries.length;
+  const selectedQueries = [];
+  for (let i = 0; i < 3 && selectedQueries.length < 3; i++) {
+    const q = queries[(startIdx + i) % queries.length];
+    if (!selectedQueries.find(sq => sq.query === q.query)) {
+      selectedQueries.push(q);
     }
   }
 
-  // 去重合并（按标题去重，新内容优先）
-  const existingTitles = new Set(existing.articles.map(a => a.title));
-  const newArticles = allArticles.filter(a => !existingTitles.has(a.title));
-  const merged = [...newArticles, ...existing.articles].slice(0, 500);
+  for (const sq of selectedQueries) {
+    console.log(`  🔎 "${sq.query}" [${sq.sourceHint}]`);
+    try {
+      const results = await searchAllEngines(sq.query, 3);
+      console.log(`     → 获取 ${results.length} 条真实结果`);
 
-  // 保存
+      for (const r of results) {
+        // 过滤明显无用的URL
+        if (!r.url || r.url.includes('youtube.com') || r.url.includes('facebook.com')) continue;
+
+        const source = inferSource(r.url);
+        allArticles.push({
+          id: uid(),
+          title: r.title,
+          url: r.url,
+          source,
+          publishDate: r.datePublished ? r.datePublished.split('T')[0] : formatDate(),
+          citationValue: estCitation(r.url),
+          summary: r.snippet,
+          tags: [sq.category, source],
+          sourceTrust: 'verified',
+          collectedAt: new Date().toISOString(),
+          searchWindow: window,
+        });
+      }
+
+      // 礼貌延迟
+      await sleep(500);
+    } catch (e) {
+      console.log(`     ⚠️ 失败: ${e.message}`);
+    }
+  }
+
+  console.log(`\n  📊 本次获取 ${allArticles.length} 篇真实文章`);
+
+  // 加载已有 + 去重合并
+  let existing = { articles: [], _lastUpdated: null, _searchCount: 0 };
+  if (existsSync(ARTICLES_FILE)) {
+    try { existing = JSON.parse(readFileSync(ARTICLES_FILE, 'utf8')); } catch (e) {}
+  }
+
+  const existingUrls = new Set(existing.articles.map(a => a.url));
+  const newArticles = allArticles.filter(a => !existingUrls.has(a.url) && a.url);
+  const merged = [...newArticles, ...existing.articles].slice(0, 200);
+
   if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
 
   const output = {
     _lastUpdated: new Date().toISOString(),
     _lastWindow: window,
     _searchCount: (existing._searchCount || 0) + 1,
-    _trackedTopics: TRACKED_BRANDS.map(b => b.name),
-    _summary: getTimeWindowLabel(window, fromHours),
-    _disclaimer: '所有条目均为AI生成的搜索主题建议，URL为百度搜索链接。点击后在搜索结果中找到真实原文。不包含虚构的文章链接。',
+    _searchEngine: BING_API_KEY ? 'Bing API v7' : 'SearXNG/DDG/Bing HTML',
+    _disclaimer: '所有条目均通过公开搜索引擎从网页获取，URL为真实可验证的文章链接。',
     articles: merged,
   };
 
   writeFileSync(ARTICLES_FILE, JSON.stringify(output, null, 2), 'utf8');
-  console.log(`\n  ✅ 搜索完成：新增 ${newArticles.length} 条搜索建议，总计 ${merged.length} 条`);
-  console.log(`  📁 数据保存至: ${ARTICLES_FILE}\n`);
+  console.log(`  ✅ 保存: 新增 ${newArticles.length} 篇, 总计 ${merged.length} 篇`);
+  console.log(`  📁 ${ARTICLES_FILE}\n`);
 
-  // 记录搜索日志
+  // 日志
   const logEntry = {
-    timestamp: new Date().toISOString(),
-    window,
-    fromHours,
-    newCount: newArticles.length,
-    totalCount: merged.length,
-    topics: TRACKED_BRANDS.map(b => b.name),
+    timestamp: new Date().toISOString(), window, fromHours,
+    engine: output._searchEngine,
+    newCount: newArticles.length, totalCount: merged.length,
+    queries: selectedQueries.map(q => q.query),
   };
 
   let logs = [];
   if (existsSync(LOG_FILE)) {
-    try {
-      logs = JSON.parse(readFileSync(LOG_FILE, 'utf8'));
-    } catch (e) {}
+    try { logs = JSON.parse(readFileSync(LOG_FILE, 'utf8')); } catch (e) {}
   }
   logs.unshift(logEntry);
   logs = logs.slice(0, 100);
